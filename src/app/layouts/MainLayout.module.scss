@@ -1,0 +1,55 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left,
+            var(--bg-tertiary) 0%,
+            var(--bg-primary) 100%);
+    overflow-x: hidden;
+
+    // Left Violet Glow
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40vw;
+        height: 60vh;
+        background: radial-gradient(circle at top left, var(--primary-glow) 0%, transparent 60%);
+        filter: blur(120px);
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    // Right Bottom Glow
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 35vw;
+        height: 50vh;
+        background: radial-gradient(circle at bottom right, rgba(112, 0, 255, 0.2) 0%, transparent 60%);
+        filter: blur(100px);
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+}
+
+// Wrapper is now full width
+.mainWrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.main {
+    padding: var(--space-2);
+    flex-grow: 1;
+    max-width: clamp(100%, 95vw, 1440px);
+    width: 100%;
+    margin: 0 auto;
+}
